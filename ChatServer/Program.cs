@@ -14,7 +14,7 @@ namespace TCPUtility.ChatServer
             //Initialize clientlist
             clients = new List<TCPClient>();
 
-            //Initialize and start server on port 1337 with SSL encryption (pass a pfx file and a password)
+            //Initialize and start server on port 1337 with SSL encryption (pass a pfx file and a password) Make sure certificate file is accessiable
             server = new TCPServer(1337, "democert.pfx", "password");
             server.Start();
             //Attatch a client connect handler
