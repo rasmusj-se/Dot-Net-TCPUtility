@@ -1,4 +1,9 @@
 ﻿using System;
+/*  Written by Rasmus Jönsson (www.rasmusj.se)
+ *  Created 2015-05-14
+ *  Licensed under MIT License
+*/
+
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;

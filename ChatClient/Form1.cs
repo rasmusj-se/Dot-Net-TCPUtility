@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*  Written by Rasmus Jönsson (www.rasmusj.se)
+ *  Created 2015-05-14
+ *  Licensed under MIT License
+*/
+
+using System;
 using System.Windows.Forms;
 
 namespace TCPUtility.ChatClient
@@ -6,6 +11,7 @@ namespace TCPUtility.ChatClient
     public partial class Form1 : Form
     {
 
+        //Create TCPClient object
         TCPClient client;
 
         public Form1()
@@ -15,7 +21,9 @@ namespace TCPUtility.ChatClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
+                //Connect to server and enable send button
                 client.Connect();
                 button2.Enabled = true;
             }
@@ -28,7 +36,9 @@ namespace TCPUtility.ChatClient
         private void Form1_Load(object sender, EventArgs e)
         {
             //Create a client with encryption, Note: Use TCPSecurity.EncryptedAndVerified to improve security (this requires root CA to be trusted and commonname to match with hostname)
+            //To disable encryption simply remove parameter TCPSecurity.Encrypted below.
             client = new TCPClient(textBox3.Text, 1337, TCPSecurity.Encrypted);
+            //Attatch eventhandler for incoming messages
             client.MessageReceived += Client_MessageReceived;
         }
 
@@ -49,14 +59,16 @@ namespace TCPUtility.ChatClient
             }
         }
 
+        //This eventhandler trigger on incoming messages
         private void Client_MessageReceived(object sender, MessageReceivieEventArgs e)
         {
-            //Add incoming messages to chat
+            //Add incoming messages to chat via invoke
             AddMessage(e.Message);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Send message to server
             client.Send(textBox1.Text);
         }
 
