@@ -1,9 +1,11 @@
-##TCP Utility written in C#. 
+## TCP Utility written in C#. 
 
 Support both encrypted and non encrypted communication, full duplex and multiple clients. 
 Uses eventhandlers to announce connected client or incoming message, very easy to use. 
 
-#####Compiled download can be found at https://rtek.se/TCPUtility.dll, dll is ready to use as is.
+`This project is not maintained.`
+
+##### Compiled download can be found at https://rtek.se/TCPUtility.dll, dll is ready to use as is.
 
 Check the simple chat server example for usage. 
 
